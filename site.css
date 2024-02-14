@@ -1,0 +1,88 @@
+body{
+  background-image: url("./assets/bakgrund2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left-container,
+.header-right-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 25%;
+}
+
+.logo{
+  width: 100%;
+  height: 100%;
+}
+
+.header-right-container{
+
+}
+
+.network-choice{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+option{
+  text-align: center;
+}
+
+#network{
+  width: 100%;
+  height: 100%;
+}
+
+.logo-header{
+  background-image: url("./assets/logo.webp");
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.header-middle-container{
+  text-align: center;
+  font-size: x-large;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+#ethereummainnet{
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #497493;
+  color: white;
+}
+
+#sepholiatestnet{
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #eb9948;
+  color: white;
+}
+
+#goerlitestnet{
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #3113a0;
+  color: white;
+}
+
+
+

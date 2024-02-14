@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="app.js" type="module" defer></script>
+  <link href="site.css" rel="stylesheet">
+  <title>Swish 2.0</title>
+</head>
+<body>
+  <header>
+    <div class="header-left-container">
+      <div class="logo"><img src="./assets/logo.webp" width="1032" height="906" class="logo-header" alt="swish 2.0 logo"></div>
+    </div>
+    <div class="header-middle-container">
+      <div class="network-display-container">
+        <span class="display-network"></span>
+      </div>
+    </div>
+    <div class="header-right-container">
+      <div class="network-choice">
+        <label for="network">Välj nätverk</label>
+        <select id="network">
+          <option disabled selcted value> - Nätverkslista - </option>
+          <option value="mainnet" id="netEth">Ethereum Mainnet</option>
+          <option value="testnet" id="netSeph">Sepholia Testnet</option>
+          <option value="testnet" id="netGoer">Goerli Testnet</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main></main>
+  <footer></footer>
+</body>
+</html>
