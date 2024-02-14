@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.5.0/web3.min.js" integrity="sha512-FhAl50BpK3gf9K//lbAWek9EEQEtGQyyXZNc1fuwcC2tVf2cskiJBcumXY0zJksYtms6S5cqubp1MNfUYTkO2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="app.js" type="module" defer></script>
   <link href="site.css" rel="stylesheet">
   <title>Swish 2.0</title>
@@ -22,14 +23,18 @@
         <label for="network">Välj nätverk</label>
         <select id="network">
           <option disabled selcted value> - Nätverkslista - </option>
-          <option value="mainnet" id="netEth">Ethereum Mainnet</option>
-          <option value="testnet" id="netSeph">Sepholia Testnet</option>
-          <option value="testnet" id="netGoer">Goerli Testnet</option>
+          <option value="netEth" id="netEth">Ethereum Mainnet</option>
+          <option value="netSeph" id="netSeph">Sepholia Testnet</option>
+          <option value="netGoer" id="netGoer">Goerli Testnet</option>
         </select>
       </div>
     </div>
   </header>
-  <main></main>
+  <main>
+    <section class="main-section">
+
+    </section>
+  </main>
   <footer></footer>
 </body>
 </html>
