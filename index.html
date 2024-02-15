@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.5.0/web3.min.js" integrity="sha512-FhAl50BpK3gf9K//lbAWek9EEQEtGQyyXZNc1fuwcC2tVf2cskiJBcumXY0zJksYtms6S5cqubp1MNfUYTkO2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="app.js" type="module" defer></script>
+  <script src="main.js" type="module" defer></script>
   <link href="site.css" rel="stylesheet">
   <title>Swish 2.0</title>
 </head>
 <body>
   <header>
     <div class="header-left-container">
-      <div class="logo"><img src="./assets/logo.webp" width="1032" height="906" class="logo-header" alt="swish 2.0 logo"></div>
+      <div class="logo"><a href="index.html"><img src="./assets/logo.webp" width="1032" height="906" class="logo-header" alt="swish 2.0 logo"></a></div>
     </div>
     <div class="header-middle-container">
       <div class="network-display-container">
@@ -20,9 +20,9 @@
     </div>
     <div class="header-right-container">
       <div class="network-choice">
-        <label for="network">Välj nätverk</label>
+        <label for="network">Välj nätverk:</label>
         <select id="network">
-          <option disabled selcted value> - Nätverkslista - </option>
+          <option disabled selcted value>Nätverkslista</option>
           <option value="netEth" id="netEth">Ethereum Mainnet</option>
           <option value="netSeph" id="netSeph">Sepholia Testnet</option>
           <option value="netGoer" id="netGoer">Goerli Testnet</option>
@@ -31,8 +31,24 @@
     </div>
   </header>
   <main>
-    <section class="main-section">
-
+    <section class="pre-section"><div class="form-control"><h2>Välj nätverk...</h2><s<div></section>
+    <section class="balance-section">
+      <h2>Ditt konto</h2>
+      <div class="form-control">
+          <div id="account-number" class="account-balance">Din kontoadress</div>
+          <div id="balance" class="account-balance">Din kontobalans</div>
+          <button type="button" id="check-balance" class="btn"> Hämta kontoinformation </button>
+      </div>
+    </section>
+    <section class="amount-section">
+      <h2>Överför</h2>
+      <div class="form-control">
+        <label for="amount">Fyll i beloppet:</label>
+        <input type="text" name="amount" id="amount" placeholder="T.ex: 0.01...">
+        <label for="recepient">Fyll i mottagrens adress:</label>
+        <input type="text" name="recepient" id="recepient" placeholder="0x...">
+        <button type="button" id="send-trx" class="btn"> Genomför transaktion </button>
+      </div>
     </section>
   </main>
   <footer></footer>
