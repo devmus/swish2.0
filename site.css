@@ -3,6 +3,13 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header, main, footer {
+  max-width: 1024px;
 }
 
 /*HEADER*/
@@ -98,6 +105,7 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* SHARED (SECTION) */
@@ -138,7 +146,7 @@ h2{
 .pre-section{
   display: block;
   background-color: rgba(187, 187, 187, 0.5);
-  width: 95vw;
+  width: 95%;
   padding: 50px;
   border: 1px solid black;
   border-radius: 50px;
@@ -161,7 +169,7 @@ h2{
 .balance-section{
   display: none;
   background-color: rgba(187, 187, 187, 0.5);
-  width: 95vw;
+  width: 95%;
   padding: 50px;
   border: 1px solid black;
   border-radius: 50px;
@@ -213,13 +221,66 @@ h2{
 .amount-section{
   display: none;
   background-color: rgba(187, 187, 187, 0.5);
-  width: 95vw;
+  width: 95%;
   padding: 50px;
   border: 1px solid black;
   border-radius: 50px;
   margin-bottom: 20px;
 }
 
+/* AMOUNT SECTION */
+
+.history-section{
+  display: none;
+  background-color: rgba(187, 187, 187, 0.5);
+  width: 95%;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+/* HISTORY SECTION */
+
+.history-section{
+  display: none;
+  flex-direction: column;
+}
+
+.history-table{
+  display: flex;
+  flex-direction: column;
+}
+
+.history-heading{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.history-heading h3{
+  width: 25%;
+}
+
+.history-heading h3:first-child{
+  width: 50%;
+}
+
+.trx-history-details{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.trx-history-details span{
+  width: 25%;
+}
+
+.trx-history-details span:first-child{
+  width: 50%;
+}
 
 /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 

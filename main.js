@@ -1,11 +1,11 @@
-import { $ } from './js/config.js';
+import { $, setURL } from './js/config.js';
 import { chosenNetwork } from './js/network.js';
 import { checkBalance } from './js/account.js';
 import { sendTrx } from './js/transfer.js';
 
 const networkChoice = $('#network');
 
-const initApp = () => {
+const initApp = async () => {
   networkChoice.selectedIndex = 0;
   networkChoice.addEventListener('change', () => chosenNetwork(networkChoice));
 

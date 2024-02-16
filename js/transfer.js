@@ -8,7 +8,6 @@ export const sendTrx = async () => {
   try {
     const amount = parseFloat(amountTrx.value) * Math.pow(10, 18);
     const adress = await getAdress();
-    console.log(adress);
 
     let params = [
       {
@@ -24,6 +23,8 @@ export const sendTrx = async () => {
       method: 'eth_sendTransaction',
       params: params,
     });
+
+    return response;
   } catch (error) {
     console.log(error);
   }

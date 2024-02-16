@@ -1,5 +1,5 @@
 import { $ } from './config.js';
-import { displayNetwork } from './dom.js';
+import { displayNetwork, resetAccountInfo } from './dom.js';
 
 const preSection = $('.pre-section');
 const mainSection = $('.balance-section');
@@ -8,10 +8,7 @@ export const chosenNetwork = (network) => {
   if (typeof ethereum !== 'undefined') {
     preSection.style.display = 'none';
     mainSection.style.display = 'block';
-    const displayAccount = $('#account-number');
-    const displayBalance = $('#balance');
-    displayAccount.innerText = 'Din kontoadress';
-    displayBalance.innerText = 'Din kontobalans';
+    resetAccountInfo();
 
     const networkOption = network.options[network.selectedIndex].text;
     const formattedNetwork = displayNetwork(networkOption);
