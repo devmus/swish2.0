@@ -6,7 +6,7 @@ const historySection = $('.history-section');
 const displayAccount = $('#account-number');
 const displayBalance = $('#balance');
 
-const historyTable = $('.history-table');
+const historyInfo = $('.history-info');
 
 export const displayNetwork = (text) => {
   if (text !== 'Nätverkslista') {
@@ -54,5 +54,5 @@ export const displayTrx = (trx) => {
   createDiv.appendChild(spanReciever);
   createDiv.appendChild(spanValue);
   createDiv.appendChild(spanBlock);
-  historyTable.appendChild(createDiv);
+  historyInfo.appendChild(createDiv);
 };
