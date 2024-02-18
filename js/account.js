@@ -1,5 +1,6 @@
 import { $ } from './config.js';
 import { getHistory } from './history.js';
+import { resetAccountInfo } from './dom.js';
 
 const displayAccount = $('#account-number');
 const displayBalance = $('#balance');
@@ -7,6 +8,8 @@ const amountSection = $('.amount-section');
 const historySection = $('.history-section');
 
 export const checkBalance = async () => {
+  resetAccountInfo();
+
   const accountAdress = await getAdress();
 
   const balance = await window.ethereum.request({
@@ -22,12 +25,19 @@ export const checkBalance = async () => {
 };
 
 export const getAdress = async () => {
-  const accountAdressArray = await window.ethereum.request({
-    method: 'eth_accounts',
-    params: [],
-  });
-  const accountAdress = accountAdressArray.toString();
-  displayAccount.innerText = accountAdress;
+  try {
+    const accountAdressArray = await window.ethereum.request({
+      method: 'eth_accounts',
+      params: [],
+    });
 
-  return accountAdress;
+    console.log(accountAdressArray);
+
+    const accountAdress = accountAdressArray[0];
+    displayAccount.innerText = accountAdress;
+
+    return accountAdress;
+  } catch (error) {
+    console.log(error);
+  }
 };

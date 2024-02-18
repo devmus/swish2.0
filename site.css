@@ -2,7 +2,7 @@ body{
   background-image: url("./assets/bakgrund2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,42 +110,28 @@ main{
 
 /* SHARED (SECTION) */
 
+.pre-section, .balance-section, .amount-section, .history-section{
+  display: block;
+  background-color: rgba(54, 54, 54, 0.8);
+  color: rgb(255, 255, 255);
+  width: 95%;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
 h2{
   text-align: center;
   font-size: xx-large;
   margin-bottom: 10px;
 }
 
-.form-control{
-  display: flex;
-  flex-direction: column;
-}
-
-.form-control label{
-  margin-bottom: 10px;
-}
-
-.form-control input{
-  width: 100%;
-  height: 30px;
-  border: 1px solid black;
-  border-radius: 10px;
-  text-indent: 10px;
-  background-color: rgba(63, 63, 63, 0.8);
-  color: rgb(255, 255, 255);
-  margin-bottom: 10px;
-}
-
-.form-control input::placeholder{
-  /* text-align: center; */
-  color: rgb(255, 255, 255);
-}
-
 /* PRE SECTION */
 
 .pre-section{
   display: block;
-  background-color: rgba(187, 187, 187, 0.5);
+  background-color: rgba(54, 54, 54, 0.8);
   width: 95%;
   padding: 50px;
   border: 1px solid black;
@@ -155,7 +141,7 @@ h2{
 .pre-section h2{
   text-align: center;
   font-size: x-large;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .metamask{
@@ -168,7 +154,8 @@ h2{
 
 .balance-section{
   display: none;
-  background-color: rgba(187, 187, 187, 0.5);
+  background-color: rgba(54, 54, 54, 0.8);
+  color: rgb(255, 255, 255);
   width: 95%;
   padding: 50px;
   border: 1px solid black;
@@ -190,13 +177,15 @@ h2{
   display: flex;
   align-items: center;
   width: 100%;
-  height: 30px;
+  height: 45px;
+  font-size:medium;
   border: 1px solid black;
   border-radius: 10px;
   text-indent: 10px;
   background-color: rgba(63, 63, 63, 0.8);
   color: rgb(255, 255, 255);
   margin-bottom: 10px;
+overflow: show;
 }
 
 .btn{
@@ -220,24 +209,33 @@ h2{
 
 .amount-section{
   display: none;
-  background-color: rgba(187, 187, 187, 0.5);
-  width: 95%;
-  padding: 50px;
-  border: 1px solid black;
-  border-radius: 50px;
-  margin-bottom: 20px;
 }
 
-/* AMOUNT SECTION */
+.form-control{
+  display: flex;
+  flex-direction: column;
+}
 
-.history-section{
-  display: none;
-  background-color: rgba(187, 187, 187, 0.5);
-  width: 95%;
-  padding: 50px;
+.form-control label{
+  height: 25px;
+  font-size: larger;
+  margin-bottom: 2px;
+}
+
+.form-control input{
+  width: 100%;
+  height: 45px;
+  font-size:medium;
   border: 1px solid black;
-  border-radius: 50px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  text-indent: 10px;
+  background-color: rgba(63, 63, 63, 0.8);
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+.form-control input::placeholder{
+  color: rgb(255, 255, 255);
 }
 
 /* HISTORY SECTION */
@@ -263,10 +261,6 @@ h2{
   width: 25%;
 }
 
-.history-heading h3:first-child{
-  width: 50%;
-}
-
 .trx-history-details{
   display:flex;
   flex-direction: row;
@@ -274,13 +268,24 @@ h2{
   margin-bottom: 2px;
 }
 
-.trx-history-details span{
+.trx-history-details a{
+text-decoration: underline;
+color: rgb(0, 255, 115);
+cursor: pointer;
+}
+
+.trx-history-details a:hover{
+  color: rgb(0, 139, 63);
+}
+
+.trx-history-details a:visited{
+  color: rgb(0, 139, 63);
+}
+
+.trx-history-details span, .trx-history-details a{
   width: 25%;
 }
 
-.trx-history-details span:first-child{
-  width: 50%;
-}
 
 /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 

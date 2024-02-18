@@ -1,4 +1,4 @@
-import { $, setURL } from './js/config.js';
+import { $ } from './js/config.js';
 import { chosenNetwork } from './js/network.js';
 import { checkBalance } from './js/account.js';
 import { sendTrx } from './js/transfer.js';

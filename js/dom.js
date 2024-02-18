@@ -1,4 +1,4 @@
-import { $ } from './config.js';
+import { $, setHistoryURL } from './config.js';
 
 const displayNetworkContainer = $('.display-network');
 const historySection = $('.history-section');
@@ -36,22 +36,50 @@ export const resetAccountInfo = () => {
   displayAccount.innerText = 'Din kontoadress';
   displayBalance.innerText = 'Din kontobalans';
   if (document.querySelector('#trx-count')) {
-    document.querySelector('#trx-count').innerText = '';
+    document.querySelector('#trx-count').remove();
+  }
+  if (document.querySelector('#block-latest')) {
+    document.querySelector('#block-latest').remove();
+  }
+  if (document.querySelector('.trx-history-details')) {
+    document.querySelector('.history-info').innerHTML = '';
   }
 };
 
-export const displayTrx = (trx) => {
+function shortenAddress(address) {
+  if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+    return 'Invalid address format';
+  }
+  const firstPart = address.slice(0, 5);
+  const lastPart = address.slice(-5);
+
+  const shortenedAddress = firstPart + '...' + lastPart;
+
+  return shortenedAddress;
+}
+
+export const displayTrx = async (trx) => {
   const createDiv = document.createElement('div');
   createDiv.classList.add('trx-history-details');
   const spanReciever = document.createElement('span');
+  const createLink = document.createElement('a');
   const spanValue = document.createElement('span');
   const spanBlock = document.createElement('span');
 
-  spanReciever.innerText = trx.to;
-  spanValue.innerText = trx.value;
+  const parsedValue = parseInt(trx.value) / Math.pow(10, 18);
+  const shortenedAddress = shortenAddress(trx.to);
+  const url = await setHistoryURL();
+
+  const link = `${url}${trx.hash}`;
+  createLink.setAttribute('href', link);
+  createLink.setAttribute('target', '_blank');
+
+  spanReciever.innerText = shortenedAddress;
+  spanValue.innerText = parsedValue;
   spanBlock.innerText = trx.blockNumber;
 
-  createDiv.appendChild(spanReciever);
+  createLink.appendChild(spanReciever);
+  createDiv.appendChild(createLink);
   createDiv.appendChild(spanValue);
   createDiv.appendChild(spanBlock);
   historyInfo.appendChild(createDiv);

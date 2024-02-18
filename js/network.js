@@ -5,10 +5,10 @@ const preSection = $('.pre-section');
 const mainSection = $('.balance-section');
 
 export const chosenNetwork = (network) => {
+  resetAccountInfo();
   if (typeof ethereum !== 'undefined') {
     preSection.style.display = 'none';
     mainSection.style.display = 'block';
-    resetAccountInfo();
 
     const networkOption = network.options[network.selectedIndex].text;
     const formattedNetwork = displayNetwork(networkOption);
