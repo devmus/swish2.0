@@ -261,6 +261,11 @@ overflow: show;
   width: 25%;
 }
 
+.history-info{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .trx-history-details{
   display:flex;
   flex-direction: row;

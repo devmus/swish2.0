@@ -1,4 +1,6 @@
+import { getAddress } from './account.js';
 import { $, setHistoryURL } from './config.js';
+import { historicBalance } from './history.js';
 
 const displayNetworkContainer = $('.display-network');
 const historySection = $('.history-section');
@@ -69,6 +71,14 @@ export const displayTrx = async (trx) => {
   const parsedValue = parseInt(trx.value) / Math.pow(10, 18);
   const shortenedAddress = shortenAddress(trx.to);
   const url = await setHistoryURL();
+  const currentAddress = await getAddress();
+
+  let balance;
+  if (currentAddress === trx.to || currentAddress === trx.from) {
+    balance = await historicBalance(currentAddress, trx.blockHash);
+  }
+
+  const parsedBalance = parseInt(balance) / Math.pow(10, 18);
 
   const link = `${url}${trx.hash}`;
   createLink.setAttribute('href', link);
@@ -76,7 +86,7 @@ export const displayTrx = async (trx) => {
 
   spanReciever.innerText = shortenedAddress;
   spanValue.innerText = parsedValue;
-  spanBlock.innerText = trx.blockNumber;
+  spanBlock.innerText = parsedBalance;
 
   createLink.appendChild(spanReciever);
   createDiv.appendChild(createLink);

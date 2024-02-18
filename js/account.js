@@ -9,9 +9,7 @@ const historySection = $('.history-section');
 
 export const checkBalance = async () => {
   resetAccountInfo();
-
-  const accountAdress = await getAdress();
-
+  const accountAdress = await getAddress();
   const balance = await window.ethereum.request({
     method: 'eth_getBalance',
     params: [accountAdress, 'latest'],
@@ -24,18 +22,14 @@ export const checkBalance = async () => {
   getHistory(accountAdress);
 };
 
-export const getAdress = async () => {
+export const getAddress = async () => {
   try {
     const accountAdressArray = await window.ethereum.request({
       method: 'eth_accounts',
       params: [],
     });
-
-    console.log(accountAdressArray);
-
     const accountAdress = accountAdressArray[0];
     displayAccount.innerText = accountAdress;
-
     return accountAdress;
   } catch (error) {
     console.log(error);

@@ -1,5 +1,5 @@
 import { $ } from './config.js';
-import { getAdress } from './account.js';
+import { getAddress } from './account.js';
 
 const amountTrx = $('#amount');
 const recepientAdress = $('#recepient');
@@ -7,7 +7,7 @@ const recepientAdress = $('#recepient');
 export const sendTrx = async () => {
   try {
     const amount = parseFloat(amountTrx.value) * Math.pow(10, 18);
-    const adress = await getAdress();
+    const adress = await getAddress();
 
     let params = [
       {
