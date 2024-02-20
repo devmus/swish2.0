@@ -25,6 +25,7 @@ header{
 .header-right-container{
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 25%;
 }
 
@@ -47,8 +48,22 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 100%;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: rgba(54, 54, 54, 0.8);
+  color: white;
+}
+
+.network-choice label, .network-choice select{
+  display: flex;
+  text-align: center;
+}
+
+.network-choice select:hover{
+  color: black;
+  cursor: pointer;
 }
 
 option{
@@ -96,6 +111,10 @@ option{
   padding: 10px;
   background-color: #3113a0;
   color: white;
+}
+
+.network-choice{
+  border: 1px solid black;
 }
 
 /* MAIN */
@@ -148,6 +167,12 @@ h2{
   cursor: pointer;
   color: blue;
   text-decoration: underline;
+}
+
+/* PRE SECTION */
+
+.network-section{
+
 }
 
 /* BALANCE SECTION */
