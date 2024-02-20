@@ -61,7 +61,12 @@ header{
   text-align: center;
 }
 
-.network-choice select:hover{
+.network-choice select:hover, .network-choice select option:hover{
+  color: black;
+  cursor: pointer;
+}
+
+.network-choice select:focus, .network-choice select option:focus{
   color: black;
   cursor: pointer;
 }
