@@ -29,15 +29,19 @@ const connect = async (network) => {
     console.log(error);
   }
 
+  const eth = '0x1';
+  const seph = '0xaa36a7';
+  const goer = '0x5';
+
   switch (network) {
     case 'ethereummainnet':
-      if (chainId !== '0x1') change('0x1');
+      if (chainId !== eth) change(eth);
       return;
     case 'sepholiatestnet':
-      if (chainId !== '0xaa36a7') change('0xaa36a7');
+      if (chainId !== seph) change(seph);
       return;
     case 'goerlitestnet':
-      if (chainId !== '0x5') change('0x5');
+      if (chainId !== goer) change(goer);
       return;
   }
 };

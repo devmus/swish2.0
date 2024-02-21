@@ -308,6 +308,10 @@ overflow: show;
   margin-bottom: 2px;
 }
 
+.trx-history-details:nth-child(odd){
+background-color: rgba(158, 158, 158, 0.2);
+}
+
 .trx-history-details a{
 text-decoration: underline;
 color: rgb(0, 255, 115);
