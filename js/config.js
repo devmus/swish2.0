@@ -1,66 +1,43 @@
 export const $ = document.querySelector.bind(document);
 
-let chainId;
-
-const getChainId = async () => {
-  chainId = await window.ethereum.request({ method: 'eth_chainId' });
-  return chainId;
+export const getChainId = async () => {
+  const chain = await window.ethereum.request({ method: 'eth_chainId' });
+  return chain;
 };
 
-// export const handleChainChanged = async () => {};
-
-export const setURL = async () => {
-  chainId = await getChainId();
-
+export const getURL = async (chainId, type) => {
   let url;
 
   switch (chainId) {
     case '0x1':
-      url = 'https://mainnet.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58';
-      return url;
+      url =
+        type === 'regular'
+          ? 'https://mainnet.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58'
+          : type === 'scan'
+          ? 'https://api.etherscan.io/api'
+          : 'https://etherscan.io/tx/';
+      break;
     case '0xaa36a7':
-      url = 'https://sepolia.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58';
-      return url;
+      url =
+        type === 'regular'
+          ? 'https://sepolia.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58'
+          : type === 'scan'
+          ? 'https://api-sepolia.etherscan.io/api'
+          : 'https://sepolia.etherscan.io/tx/';
+      break;
     case '0x5':
-      url = 'https://goerli.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58';
-      return url;
+      url =
+        type === 'regular'
+          ? 'https://goerli.infura.io/v3/2a00b6c60feb4574af79a5daf93c9c58'
+          : type === 'scan'
+          ? 'https://api-goerli.etherscan.io/api'
+          : 'https://goerli.etherscan.io/tx/';
+      break;
+    default:
+      url = '';
   }
-};
 
-export const setScanURL = async () => {
-  chainId = await getChainId();
-
-  let url;
-
-  switch (chainId) {
-    case '0x1':
-      url = 'https://api.etherscan.io/api';
-      return url;
-    case '0xaa36a7':
-      url = 'https://api-sepolia.etherscan.io/api';
-      return url;
-    case '0x5':
-      url = 'https://api-goerli.etherscan.io/api';
-      return url;
-  }
-};
-
-export const setHistoryURL = async () => {
-  chainId = await getChainId();
-
-  let url;
-
-  switch (chainId) {
-    case '0x1':
-      url = 'https://etherscan.io/tx/';
-      return url;
-    case '0xaa36a7':
-      url = 'https://sepolia.etherscan.io/tx/';
-      return url;
-    case '0x5':
-      url = 'https://goerli.etherscan.io/tx/';
-      return url;
-  }
+  return url;
 };
 
 export const settings = {

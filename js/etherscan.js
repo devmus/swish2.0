@@ -1,8 +1,8 @@
 import {
-  setScanURL,
+  getChainId,
+  getURL,
   settings,
   transactionsByAdress,
-  setURL,
 } from './config.js';
 import { displayTrx } from './dom.js';
 
@@ -32,14 +32,15 @@ class HttpClient {
 }
 
 export const getTransactions = async (accountAddress) => {
-  const scanUrl = await setScanURL();
+  const chainId = await getChainId();
+  const scanURL = await getURL(chainId, 'scan');
   const transactionHistoryArray = await new HttpClient().get(
-    scanUrl,
+    scanURL,
     accountAddress
   );
   for (let transaction of transactionHistoryArray.result) {
-    const url = await setURL();
-    const web3 = new Web3(url);
+    const regularURL = await getURL(chainId, 'regular');
+    const web3 = new Web3(regularURL);
     let trxHash = await web3.eth.getTransaction(transaction.hash);
     displayTrx(trxHash);
   }

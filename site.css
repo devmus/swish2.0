@@ -273,6 +273,7 @@ overflow: show;
 .history-section{
   display: none;
   flex-direction: column;
+  min-height: 300px;
 }
 
 .history-table{
@@ -285,15 +286,18 @@ overflow: show;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 5px;
+  padding-right: 17px;
 }
 
 .history-heading h3{
-  width: 25%;
+  width: 33%;
 }
 
 .history-info{
   display: flex;
   flex-direction: column-reverse;
+  max-height: 150px;
+  overflow-y: scroll;
 }
 
 .trx-history-details{
@@ -318,7 +322,7 @@ cursor: pointer;
 }
 
 .trx-history-details span, .trx-history-details a{
-  width: 25%;
+  width: 33%;
 }
 
 

@@ -1,4 +1,4 @@
-import { $ } from './config.js';
+import { $, getChainId } from './config.js';
 import { displayNetwork, resetAccountInfo } from './dom.js';
 
 const preSection = $('.pre-section');
@@ -19,6 +19,7 @@ export const chosenNetwork = (network) => {
 };
 
 const connect = async (network) => {
+  const chainId = await getChainId();
   try {
     await window.ethereum.request({
       method: 'eth_requestAccounts',
@@ -27,8 +28,6 @@ const connect = async (network) => {
   } catch (error) {
     console.log(error);
   }
-
-  const chainId = await window.ethereum.request({ method: 'eth_chainId' });
 
   switch (network) {
     case 'ethereummainnet':

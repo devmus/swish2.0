@@ -4,15 +4,13 @@ import { checkBalance } from './js/account.js';
 import { sendTrx } from './js/transfer.js';
 
 const networkChoice = $('#network');
+const checkBalanceButton = $('#check-balance');
+const sendTrxButton = $('#send-trx');
+networkChoice.selectedIndex = 0;
 
-const initApp = async () => {
-  networkChoice.selectedIndex = 0;
+const initApp = () => {
   networkChoice.addEventListener('change', () => chosenNetwork(networkChoice));
-
-  const checkBalanceButton = $('#check-balance');
   checkBalanceButton.addEventListener('click', () => checkBalance());
-
-  const sendTrxButton = $('#send-trx');
   sendTrxButton.addEventListener('click', () => sendTrx());
 };
 
