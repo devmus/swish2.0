@@ -125,7 +125,7 @@ option{
 /* MAIN */
 
 main{
-  padding-top: 5rem;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,6 +298,7 @@ overflow: show;
   flex-direction: column-reverse;
   max-height: 150px;
   overflow-y: scroll;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .trx-history-details{
