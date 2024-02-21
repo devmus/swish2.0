@@ -1,21 +1,18 @@
 import { $ } from './config.js';
 import { getHistory } from './history.js';
-import { resetAccountInfo } from './dom.js';
+import { resetAccountInfo, displayBalance } from './dom.js';
 
 const displayAccount = $('#account-number');
-const displayBalance = $('#balance');
 const amountSection = $('.amount-section');
 const historySection = $('.history-section');
 
 export const checkBalance = async () => {
   resetAccountInfo();
   const accountAdress = await getAddress();
-  const balance = await window.ethereum.request({
-    method: 'eth_getBalance',
-    params: [accountAdress, 'latest'],
-  });
+  const balance = await getBalance(accountAdress);
+
   const parsedBalance = parseInt(balance) / Math.pow(10, 18);
-  displayBalance.innerText = `${parsedBalance} ETH`;
+  displayBalance(parsedBalance);
 
   amountSection.style.display = 'block';
   historySection.style.display = 'block';
@@ -31,6 +28,18 @@ export const getAddress = async () => {
     const accountAdress = accountAdressArray[0];
     displayAccount.innerText = accountAdress;
     return accountAdress;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBalance = async (address) => {
+  try {
+    const response = await window.ethereum.request({
+      method: 'eth_getBalance',
+      params: [address, 'latest'],
+    });
+    return response;
   } catch (error) {
     console.log(error);
   }

@@ -20,6 +20,6 @@ export const historicBalance = async (address, block) => {
   const regularURL = await getURL(chainId, 'regular');
   const web3 = new Web3(regularURL);
 
-  const balance = web3.eth.getBalance(address, block);
+  const balance = await web3.eth.getBalance(address, block);
   return balance;
 };

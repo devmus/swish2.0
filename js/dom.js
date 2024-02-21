@@ -1,11 +1,12 @@
 import { getAddress } from './account.js';
 import { $, getChainId, getURL } from './config.js';
 import { historicBalance } from './history.js';
+import { shortenAddress } from './address.js';
 
 const displayNetworkContainer = $('.display-network');
 const historySection = $('.history-section');
 const displayAccount = $('#account-number');
-const displayBalance = $('#balance');
+const balanceHtml = $('#balance');
 const historyInfo = $('.history-info');
 
 export const displayNetwork = (text) => {
@@ -16,6 +17,10 @@ export const displayNetwork = (text) => {
     container.setAttribute('id', containerId);
     return containerId;
   }
+};
+
+export const displayBalance = (balance) => {
+  balanceHtml.innerText = `${balance} ETH`;
 };
 
 export const displayTrxCount = (trxCount) => {
@@ -34,7 +39,7 @@ export const displayLatestBlock = (block) => {
 
 export const resetAccountInfo = () => {
   displayAccount.innerText = 'Din kontoadress';
-  displayBalance.innerText = 'Din kontobalans';
+  balanceHtml.innerText = 'Din kontobalans';
   if (document.querySelector('#trx-count')) {
     document.querySelector('#trx-count').remove();
   }
@@ -45,16 +50,6 @@ export const resetAccountInfo = () => {
     document.querySelector('.history-info').innerHTML = '';
   }
 };
-
-function shortenAddress(address) {
-  if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
-    return 'Invalid address format';
-  }
-  const firstPart = address.slice(0, 5);
-  const lastPart = address.slice(-5);
-  const shortenedAddress = firstPart + '...' + lastPart;
-  return shortenedAddress;
-}
 
 export const displayTrx = async (trx) => {
   const chainId = await getChainId();

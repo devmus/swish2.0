@@ -1,8 +1,12 @@
 export const $ = document.querySelector.bind(document);
 
 export const getChainId = async () => {
-  const chain = await window.ethereum.request({ method: 'eth_chainId' });
-  return chain;
+  try {
+    const chain = await window.ethereum.request({ method: 'eth_chainId' });
+    return chain;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getURL = async (chainId, type) => {
