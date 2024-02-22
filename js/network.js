@@ -14,7 +14,7 @@ export const chosenNetwork = (network) => {
     const formattedNetwork = displayNetwork(networkOption);
     connect(formattedNetwork);
   } else {
-    preSection.innerHTML = `<div class="form-control"><h2>Du behöver <a href="https://metamask.io/" class="metamask">installera en wallet</a> först...</h2><s<div></section>`;
+    preSection.innerHTML = `<div class="form-control"><h2>Du behöver <a href="https://metamask.io/" class="metamask">installera en wallet</a> först...</h2><div></section>`;
   }
 };
 
